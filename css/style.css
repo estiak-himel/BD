@@ -73,6 +73,7 @@ h1,h2,h3,h4,h5,h6,p{
 .menu{
     height: 880px;
     overflow-y: scroll;
+
     margin-left: 50px;
     color:rgb(21, 136, 236);
     
@@ -105,4 +106,141 @@ h1,h2,h3,h4,h5,h6,p{
 }
 .menu a:hover {
     color:#6b0054 ;
+}
+
+
+/* waris part st */
+.notic{
+  background: red;
+   font-size: 25px;
+}
+.slidpart{
+  border: solid 1px;
+  background: green;
+}
+/* waris part end */
+
+.scrolling-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  border: #3f2828 solid 1px;
+  border-radius: 5px;
+  .comm {
+    display: flex;
+    font-size: 25px;
+    animation: scroll 30s linear infinite;
+    cursor: pointer;
+    margin: 0;
+    div {
+      margin: 0;
+      &:before {
+        content:'•';
+        -webkit-text-stroke: 0px #000;
+        color: #ff0;
+        display: inline-block;
+        margin: 0 4rem;
+      }
+		&:nth-child(odd) {
+			color: #f50;
+		
+		}
+      &:hover {
+        color: #ff0;
+			transition: 0.2s;
+      }
+    }
+  } 
+  &:hover{
+    .comm  {
+      animation-play-state: paused;
+    }
+  }
+} 
+
+
+
+
+@keyframes scroll {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+.scroltextt{
+  color: brown;
+}
+
+/* Form Part st */
+.formpart{
+  border: solid black 1px;
+  padding: 20px 10px;
+}
+
+.formhead1{
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.inputs-cls{
+  width: 90%;
+  height: 45px;
+}
+.inputs-clss{
+  width: 90%;
+  height: 170px;
+}
+
+.selects{
+  width: 90%;
+  border-radius:2px;
+  background: none;
+  margin-top: 20px;
+  height: 45px;
+  padding-left: 20px;
+  border: solid 1px rgb(154, 146, 146);
+  margin-top: 12px;
+  background:white;
+}
+
+.table11{
+  text-align: center;
+  border:  1px;
+  padding: 10px;
+  width: 90%;
+  margin-top: 25px;
+  margin-bottom: 35px;
+
+}
+.add{
+  font-size: 30px;
+  padding: 1px 6px ;
+ 
+}
+.oarish{
+  font-size: 20px;
+}
+.subbutn{
+  padding:10px 25px;
+  background: green;
+  margin-bottom: 20px;
+  margin-left:50% ;margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  color: #eaede3;
+  font-weight: 600;
+  font-size: 25px;
+  transform: translate(-50px);
+}
+
+.bodybg{
+  background: url(../photos/images.jpeg);
+  background-size: cover;
+  /* background: #181217; */
+}
+
+.container{
+  background: #eaede3;
 }
