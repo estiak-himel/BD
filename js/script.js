@@ -1,11 +1,126 @@
-function myFunction() {
-    document.getElementById("myDropdown2").classList.toggle("show");
-  }
-function myFunction2() {
-    document.getElementById("myDropdown2").classList.toggle("show");
-  }
+$(function () {
+	"use strict";
+	// search bar
+	$(".search-btn-mobile").on("click", function () {
+		$(".search-bar").addClass("full-search-bar");
+	});
+	$(".search-arrow-back").on("click", function () {
+		$(".search-bar").removeClass("full-search-bar");
+	});
+	$(function () {
+		$('.metismenu-card').metisMenu({
+			toggle: false,
+			triggerElement: '.card-header',
+			parentTrigger: '.card',
+			subMenu: '.card-body'
+		});
+	});
+	// Tooltips 
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	})
+	// Metishmenu card collapse
+	$(function () {
+		$('.card-collapse').metisMenu({
+			toggle: false,
+			triggerElement: '.card-header',
+			parentTrigger: '.card',
+			subMenu: '.card-body'
+		});
+	});
+	// toggle menu button
+	$(".toggle-btn").click(function () {
+		if ($(".wrapper").hasClass("toggled")) {
+			// unpin sidebar when hovered
+			$(".wrapper").removeClass("toggled");
+			$(".sidebar-wrapper").unbind("hover");
+		} else {
+			$(".wrapper").addClass("toggled");
+			$(".sidebar-wrapper").hover(function () {
+				$(".wrapper").addClass("sidebar-hovered");
+			}, function () {
+				$(".wrapper").removeClass("sidebar-hovered");
+			})
+		}
+	});
+	$(".toggle-btn-mobile").on("click", function () {
+		$(".wrapper").removeClass("toggled");
+	});
+	// chat toggle
+	$(".chat-toggle-btn").on("click", function () {
+		$(".chat-wrapper").toggleClass("chat-toggled");
+	});
+	$(".chat-toggle-btn-mobile").on("click", function () {
+		$(".chat-wrapper").removeClass("chat-toggled");
+	});
+	// email toggle
+	$(".email-toggle-btn").on("click", function () {
+		$(".email-wrapper").toggleClass("email-toggled");
+	});
+	$(".email-toggle-btn-mobile").on("click", function () {
+		$(".email-wrapper").removeClass("email-toggled");
+	});
+	// compose mail
+	$(".compose-mail-btn").on("click", function () {
+		$(".compose-mail-popup").show();
+	});
+	$(".compose-mail-close").on("click", function () {
+		$(".compose-mail-popup").hide();
+	});
+	// === sidebar menu activation js
+	$(function () {
+		for (var i = window.location, o = $(".metismenu li a").filter(function () {
+			return this.href == i;
+		}).addClass("").parent().addClass("mm-active");;) {
+			if (!o.is("li")) break;
+			o = o.parent("").addClass("mm-show").parent("").addClass("mm-active");
+		}
+	}),
+	// metismenu
+	$(function () {
+		$('#menu').metisMenu();
+	});
+	/* Back To Top */
+	$(document).ready(function () {
+		$(window).on("scroll", function () {
+			if ($(this).scrollTop() > 300) {
+				$('.back-to-top').fadeIn();
+			} else {
+				$('.back-to-top').fadeOut();
+			}
+		});
+		$('.back-to-top').on("click", function () {
+			$("html, body").animate({
+				scrollTop: 0
+			}, 600);
+			return false;
+		});
+	});
+	/* perfect scrol bar */
+	new PerfectScrollbar('.header-message-list');
+	new PerfectScrollbar('.header-notifications-list');
+	
+	
+	/*switcher*/
+	
+	$(".switcher-btn").on("click", function () {
+		$(".switcher-wrapper").toggleClass("switcher-toggled");
+	});
+	
+	$("#darkmode").on("click", function () {
+		$("html").addClass("dark-theme");
+	});
+	
+	$("#lightmode").on("click", function () {
+		$("html").removeClass("dark-theme");
+	});
+	
+	
 
 
+
+
+	
   
 var $tickerWrapper = $(".tickerwrapper");
 var $list = $tickerWrapper.find("ul.list");
@@ -44,7 +159,7 @@ $tickerWrapper.on("mouseenter", function(){
 	infinite.play();
 });
 
-
+});
 
 
 
@@ -106,3 +221,31 @@ function add_row()
  document.getElementById("new_country").value="";
  document.getElementById("new_age").value="";
 }
+
+
+
+
+
+
+	
+	
+	
+	
+
+
+
+	// page link 
+	function openCity(evt, cityName) {
+		var i, x, tablinks;
+		x = document.getElementsByClassName("city");
+		for (i = 0; i < x.length; i++) {
+		  x[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablink");
+		for (i = 0; i < x.length; i++) {
+		  tablinks[i].className = tablinks[i].className.replace(" w3-red", ""); 
+		}
+		document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " w3-red";
+	  }
+	// page link
